@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MoneyMate</title>
+<style>
+body{font-family:Arial,sans-serif;background:#f2faf8;margin:0;color:#183b4b}
+header{background:#087f83;color:white;padding:28px 20px;text-align:center}
+main{max-width:650px;margin:auto;padding:18px}
+section{background:white;border-radius:14px;padding:20px;margin:16px 0;box-shadow:0 2px 8px #0001}
+h2{color:#087f83}
+button{background:#087f83;color:white;border:0;border-radius:8px;padding:12px;margin-top:10px;cursor:pointer}
+input{padding:12px;width:90%;margin:6px 0;border:1px solid #bbb;border-radius:8px;font-size:16px}
+.result{font-weight:bold;color:#087f83;margin-top:12px}
+</style>
+</head>
+<body>
+<header>
+<h1>MoneyMate 💚</h1>
+<p>Earn smarter. Save better. Build your future.</p>
+</header>
+<main>
+<section>
+<h2>💼 Side Hustle Ideas</h2>
+<p>Explore ways to earn extra income:</p>
+<ul>
+<li>Pet sitting and dog walking</li>
+<li>Freelance writing or design</li>
+<li>House cleaning</li>
+<li>Online tutoring</li>
+<li>Local delivery services</li>
+</ul>
+<p>Research local requirements and avoid jobs that demand upfront fees.</p>
+</section>
+<section>
+<h2>💰 Budget Calculator</h2>
+<label>Monthly income ($)</label>
+<input id="income" type="number" min="0" placeholder="Example: 3000">
+<label>Monthly expenses ($)</label>
+<input id="expenses" type="number" min="0" placeholder="Example: 2200">
+<button onclick="budget()">Calculate Money Left</button>
+<p class="result" id="budgetResult"></p>
+</section>
+<section>
+<h2>🎯 Savings Goal</h2>
+<label>Your savings goal ($)</label>
+<input id="goal" type="number" min="0" placeholder="Example: 1000">
+<label>Amount saved each month ($)</label>
+<input id="monthly" type="number" min="0" placeholder="Example: 100">
+<button onclick="savings()">Calculate Months Needed</button>
+<p class="result" id="savingsResult"></p>
+</section>
+<section>
+<h2>🚀 Small Business Starter</h2>
+<p>Start by identifying a problem you can solve, estimating your costs, and testing your idea with potential customers.</p>
+</section>
+</main>
+<script>
+function budget(){
+const a=Number(document.getElementById('income').value);
+const b=Number(document.getElementById('expenses').value);
+document.getElementById('budgetResult').textContent=
+a>=0&&b>=0&&document.getElementById('income').value!==''&&document.getElementById('expenses').value!==''?
+'Money remaining: $'+(a-b).toFixed(2):'Enter valid amounts.';
+}
+function savings(){
+const goal=Number(document.getElementById('goal').value);
+const monthly=Number(document.getElementById('monthly').value);
+document.getElementById('savingsResult').textContent=
+goal>0&&monthly>0?
+'About '+Math.ceil(goal/monthly)+' months to reach your goal.':
+'Enter a goal and a monthly savings amount greater than zero.';
+}
+</script>
+</body>
+</html>
